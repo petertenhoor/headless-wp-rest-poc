@@ -14,6 +14,7 @@ Proof of concept for headless WordPress using the REST API, Redis caching layer 
 ## In Progress
 
 - Add simple WordPress REST Routes to supply the data the frontend needs.
+    - Analyse https://wordpress.org/plugins/better-rest-endpoints/
 
 ## Done
 
