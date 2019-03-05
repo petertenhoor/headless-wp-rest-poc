@@ -8,6 +8,7 @@ node_modules
 .env
 .next
 *.log
+*.sql
 
 # WordPress related files
 wordpress/public/readme.html
