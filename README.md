@@ -21,7 +21,8 @@ Proof of concept for headless WordPress using the REST API, Redis caching layer 
 ## Nice to have's
 
 - Find out a good way to map (Visual Composer) shortcodes to React components
-- See how to handle SEO (meta, sitemap etc)
+- Find out a good way to handle SEO (meta, sitemap etc)
+- Find out a good way to handle forms
 - Add a 404 page
 
 ## Routes
