@@ -1,0 +1,43 @@
+{
+  "name": "headless-wp-rest-poc-frontend",
+  "version": "1.0.0",
+  "description": "Front-end application built with Next.js for my wp rest test.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "start": "cross-env NODE_ENV=production node server.js 3000",
+    "build": "cross-env NODE_ENV=production next build"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:petertenhoor/headless-wp-rest-poc.git"
+  },
+  "author": "Peter ten Hoor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petertenhoor/headless-wp-rest-poc/issues"
+  },
+  "homepage": "https://github.com/petertenhoor/headless-wp-rest-poc#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.4.10",
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2"
+  },
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.24.0",
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-fastclick": "^3.0.2",
+    "react-grid-system": "^4.4.3"
+  }
+}

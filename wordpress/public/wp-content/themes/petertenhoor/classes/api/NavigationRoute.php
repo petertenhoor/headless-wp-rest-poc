@@ -50,6 +50,8 @@ class NavigationRoute extends Singleton
 
         $menuItems = wp_get_nav_menu_items($primaryNavigationObject);
 
+        Log::log($menuItems);
+
         //set up response
         $data = [
             'items' => array_map(function ($item) {
@@ -58,6 +60,7 @@ class NavigationRoute extends Singleton
                 $menuItem->label = $item->title;
                 $menuLink = self::parseMenuLink($item);
                 $menuItem->href = $menuLink->href;
+                $menuItem->target = $item->target;
                 $menuItem->as = $menuLink->as;
                 return $menuItem;
             }, $menuItems)

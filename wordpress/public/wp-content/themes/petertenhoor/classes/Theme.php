@@ -47,6 +47,10 @@ class Theme extends Singleton
         self::initRestRoutes();
     }
 
+    public static function filterRestRoutes($namespace, $route, $args, $override) {
+        Log::log($namespace);
+    }
+
     /**
      * Init component classes
      */

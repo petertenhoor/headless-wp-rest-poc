@@ -3,9 +3,6 @@ Proof of concept for headless WordPress using the REST API, Redis caching layer 
 
 ## To do
 
-- Scaffold Next.js frontend
-- Create WP REST endpoints to extract needed data.
-- Set up basic authentication for WP Rest endpoints.
 - Add SSR caching for frontend.
 - add Redis caching layer between frontend and WordPress.
 - Add a cache clear mechanism in WordPress.
@@ -13,12 +10,13 @@ Proof of concept for headless WordPress using the REST API, Redis caching layer 
 
 ## In Progress
 
-- Add simple WordPress REST Routes to supply the data the frontend needs.
-    - Analyse https://wordpress.org/plugins/better-rest-endpoints/
+- Set up basic authentication for WP Rest endpoints.
 
 ## Done
 
 - Scaffold WordPress environment with some pages / posts / a menu.
+- Add simple WordPress REST Routes to supply the data the frontend needs.
+- Scaffold Next.js frontend
 
 ## Nice to have's
 
