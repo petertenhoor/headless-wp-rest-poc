@@ -4,20 +4,73 @@ import PropTypes from "prop-types";
 
 import styles from "./index.scss";
 
+/**
+ * Render menu items
+ *
+ * @param menuData
+ * @returns {*}
+ */
 const renderMenuItems = (menuData) => {
-    return menuData.data.items.map((menuItem) => {
+    return menuData.data.items.map(item => {
+
+        //handle custom menu items
+        if (item.object === 'custom') {
+            return (
+                <Link href={item.url} key={item.ID}>
+                    <a className={styles.navigationLink}
+                       target={item.target !== null ? item.target : "_self"}>
+                        {item.title}
+                    </a>
+                </Link>
+            )
+        }
+
+        //handle home route
+        if (item.isHome === true) {
+            return (
+                <Link href={'/'} key={item.ID}>
+                    <a className={styles.navigationLink}
+                       target={item.target !== null ? item.target : "_self"}>
+                        {item.title}
+                    </a>
+                </Link>
+            )
+        }
+
+        //handle pages
+        if (item.object === "page") {
+            return (
+                <Link href={`/${item.object}?slug=${item.slug}`} as={`/${item.slug}`} key={item.ID}>
+                    <a className={styles.navigationLink}
+                       target={item.target !== null ? item.target : "_self"}>
+                        {item.title}
+                    </a>
+                </Link>
+            )
+        }
+
+        //handle blog
+        if (item.object === "post") {
+            return (
+                <Link href={`/single-blog?slug=${item.slug}`} as={`/blog/${item.slug}`} key={item.ID}>
+                    <a className={styles.navigationLink}
+                       target={item.target !== null ? item.target : "_self"}>
+                        {item.title}
+                    </a>
+                </Link>
+            )
+        }
+
+        //handle other dynamic routes
         return (
-            <Link prefetch
-                  key={menuItem.id}
-                  href={menuItem.href}
-                  as={menuItem.as}>
+            <Link href={`/${item.object}?slug=${item.slug}`} as={`/${item.object}/${item.slug}`} key={item.ID}>
                 <a className={styles.navigationLink}
-                   target={menuItem.target !== null ? menuItem.target : "_self"}>
-                    {menuItem.label}
+                   target={item.target !== null ? item.target : "_self"}>
+                    {item.title}
                 </a>
             </Link>
         )
-    })
+    });
 }
 
 const Header = ({menuData}) => {

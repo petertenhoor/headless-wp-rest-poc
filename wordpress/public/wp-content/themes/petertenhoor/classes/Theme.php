@@ -6,10 +6,15 @@ namespace PTH;
 require_once("utils/Singleton.php");
 require_once("utils/Log.php");
 
+//post types
+require_once("post-types/BlogPostType.php");
+
 //components
 //require_once("components/FlushFrontendCacheComponent.php");
-require_once("components/MainNavigation.php");
 //require_once("components/GraphqlCacheComponent.php");
+require_once("components/MainNavigation.php");
+require_once("components/PreviewComponent.php");
+require_once("components/CorsComponent.php");
 
 //api
 require_once("api/FrontPageRoute.php");
@@ -38,17 +43,29 @@ class Theme extends Singleton
     const API_NAMESPACE = 'pth/v1';
 
     /**
+     * Define API prefix
+     */
+    const API_PREFIX = 'api';
+
+    /**
+     * Define frontend base url
+     */
+    const FRONTEND_BASE_URL = 'http://127.0.0.1:3000';
+
+    /**
      * Theme constructor.
      */
     protected function __construct()
     {
+        self::initPostTypes();
         self::initComponents();
         self::setImageSizes();
         self::initRestRoutes();
     }
 
-    public static function filterRestRoutes($namespace, $route, $args, $override) {
-        Log::log($namespace);
+    public static function initPostTypes()
+    {
+        BlogPostType::getInstance();
     }
 
     /**
@@ -57,6 +74,8 @@ class Theme extends Singleton
     public static function initComponents()
     {
         MainNavigation::getInstance();
+        PreviewComponent::getInstance();
+        CorsComponent::getInstance();
 //        FlushFrontendCacheComponent::getInstance();
 //        GraphqlCacheComponent::getInstance();
     }

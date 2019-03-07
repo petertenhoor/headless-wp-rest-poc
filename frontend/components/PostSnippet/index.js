@@ -5,7 +5,7 @@ import styles from "./index.scss";
 
 const PostSnippet = ({post}) => {
     return (
-        <Link prefetch href={`/post?slug=${post.slug}`} as={`/post/${post.slug}`}>
+        <Link prefetch href={`/single-blog?slug=${post.slug}`} as={`/blog/${post.slug}`}>
 
             <a className={styles.postSnippet}>
 
@@ -28,7 +28,7 @@ const PostSnippet = ({post}) => {
                      </span>
 
                     <p className={styles.snippetPostContent}
-                         dangerouslySetInnerHTML={{__html: post.excerpt}}>
+                       dangerouslySetInnerHTML={{__html: post.excerpt}}>
                     </p>
 
                 </div>

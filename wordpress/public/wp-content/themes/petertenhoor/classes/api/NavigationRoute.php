@@ -49,19 +49,19 @@ class NavigationRoute extends Singleton
         }
 
         $menuItems = wp_get_nav_menu_items($primaryNavigationObject);
-
-        Log::log($menuItems);
+        $frontPageId = (int)get_option('page_on_front');
 
         //set up response
         $data = [
-            'items' => array_map(function ($item) {
+            'items' => array_map(function ($item) use ($frontPageId) {
                 $menuItem = new \stdClass();
-                $menuItem->id = $item->ID;
-                $menuItem->label = $item->title;
-                $menuLink = self::parseMenuLink($item);
-                $menuItem->href = $menuLink->href;
+                $menuItem->ID = $item->ID;
+                $menuItem->title = $item->title;
+                $menuItem->object = $item->object;
+                $menuItem->slug = array_slice(explode('/', rtrim(str_replace(get_home_url(), '', $item->url), '/')), -1)[0];
+                $menuItem->url = untrailingslashit(str_replace(get_home_url(), Theme::FRONTEND_BASE_URL, $item->url));
                 $menuItem->target = $item->target;
-                $menuItem->as = $menuLink->as;
+                $menuItem->isHome = $frontPageId > 0 && $item->object === 'page' && (int)get_post_meta($item->ID, '_menu_item_object_id', true) === $frontPageId;
                 return $menuItem;
             }, $menuItems)
         ];
@@ -97,9 +97,9 @@ class NavigationRoute extends Singleton
                 $returnObject->href = '/page?slug=' . $slug;
                 $returnObject->as = '/' . $slug;
                 break;
-            case 'post':
-                $returnObject->href = '/post?slug=' . $slug;
-                $returnObject->as = '/post/' . $slug;
+            case BlogPostType::TYPE:
+                $returnObject->href = '/' . BlogPostType::BASE_SLUG . '?slug=' . $slug;
+                $returnObject->as = '/' . BlogPostType::BASE_SLUG . '/' . $slug;
                 break;
             case 'custom':
                 $returnObject->href = '/' . $slug;

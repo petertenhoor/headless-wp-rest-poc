@@ -38,6 +38,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-fastclick": "^3.0.2",
-    "react-grid-system": "^4.4.3"
+    "react-grid-system": "^4.4.3",
+    "redis": "^2.8.0"
   }
 }

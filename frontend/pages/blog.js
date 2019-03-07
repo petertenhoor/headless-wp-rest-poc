@@ -5,9 +5,9 @@ import PostSnippet from "../components/PostSnippet";
 import NavigationModel from "../models/NavigationModel";
 import PostModel from "../models/PostModel";
 
-const PostsPage = ({menuData, postData}) => {
+const Blog = ({menuData, postData}) => {
     return (
-        <Layout metaTitle={`Posts archive`} menuData={menuData}>
+        <Layout metaTitle={`Blog archive`} menuData={menuData}>
             <React.Fragment>
                 {postData.data.map((postData) => {
                         return (
@@ -25,7 +25,7 @@ const PostsPage = ({menuData, postData}) => {
 /**
  * Get initial props
  */
-PostsPage.getInitialProps = async ({req}) => {
+Blog.getInitialProps = async ({req}) => {
     return {
         menuData: await new NavigationModel().getMenuByLocationSlug(),
         postData: await new PostModel().getAll()
@@ -35,4 +35,4 @@ PostsPage.getInitialProps = async ({req}) => {
 /**
  * Export component
  */
-export default PostsPage;
+export default Blog;

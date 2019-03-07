@@ -7,7 +7,7 @@ import styles from "../scss/page/post.scss";
 import NavigationModel from "../models/NavigationModel";
 import PostModel from "../models/PostModel";
 
-const Post = ({menuData, postData}) => {
+const SingleBlog = ({menuData, postData}) => {
     return (
         <Layout metaTitle={`${postData.data.title} | Blog`} menuData={menuData}>
 
@@ -33,8 +33,8 @@ const Post = ({menuData, postData}) => {
                 <div className={styles.postContent}
                      dangerouslySetInnerHTML={{__html: postData.data.content}}></div>
 
-                <Link href={'/posts'} as={'/posts'}>
-                    <a className={styles.archiveLink}>Back to posts</a>
+                <Link href={'/blog'} as={'/blog'}>
+                    <a className={styles.archiveLink}>Back to archive</a>
                 </Link>
 
             </Col>
@@ -43,7 +43,7 @@ const Post = ({menuData, postData}) => {
     )
 }
 
-Post.getInitialProps = async ({query}) => {
+SingleBlog.getInitialProps = async ({query}) => {
     return {
         menuData: await new NavigationModel().getMenuByLocationSlug(),
         postData: await new PostModel().getPostDataBySlug(query.slug)
@@ -51,4 +51,4 @@ Post.getInitialProps = async ({query}) => {
 }
 
 
-export default Post;
+export default SingleBlog;
