@@ -9,8 +9,8 @@ class PostModel {
      * Define endpoints
      * @type {string}
      */
-    ENDPOINT_POSTS = 'http://admin.petertenhoor.nl/wp-json/better-rest-endpoints/v1/posts'
-    ENDPOINT_POST = 'http://admin.petertenhoor.nl/wp-json/better-rest-endpoints/v1/post'
+    ENDPOINT_POSTS = 'http://127.0.0.1/wp-json/better-rest-endpoints/v1/posts'
+    ENDPOINT_POST = 'http://127.0.0.1/wp-json/better-rest-endpoints/v1/post'
 
     /**
      * Get all posts
@@ -20,8 +20,14 @@ class PostModel {
         let response = {success: false, data: {}}
 
         try {
-            const url = `${this.ENDPOINT_POSTS}`
-            const data = await (await fetch(url)).json()
+            const url = `http://127.0.0.1:3000/api`
+            const data = await (await fetch(url, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    url: this.ENDPOINT_POSTS
+                })
+            })).json()
 
             response.success = true
             response.data = data
@@ -42,8 +48,14 @@ class PostModel {
         if (slug === false || slug === '') return response
 
         try {
-            const url = `${this.ENDPOINT_POST}/${slug}`
-            const data = await (await fetch(url)).json()
+            const url = `http://127.0.0.1:3000/api`
+            const data = await (await fetch(url, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    url: `${this.ENDPOINT_POST}/${slug}`
+                })
+            })).json()
 
             response.success = true
             response.data = data

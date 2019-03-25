@@ -8,7 +8,6 @@ const Page = ({menuData, pageData}) => {
     return (
         <Layout metaTitle={pageData.data.title} menuData={menuData}>
             <Col sm={12}>
-                <h1>{pageData.data.title}</h1>
                 <div dangerouslySetInnerHTML={{__html: pageData.data.content}}></div>
             </Col>
         </Layout>

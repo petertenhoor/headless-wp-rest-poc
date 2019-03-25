@@ -56,7 +56,6 @@ class PreviewComponent extends Singleton
      */
     public static function customize_wp_admin_bar_preview_links($wp_admin_bar)
     {
-        Log::log($wp_admin_bar);
         $viewSiteNode = $wp_admin_bar->get_node('view-site');
         $viewSiteNode->meta['target'] = '_blank';
         $viewSiteNode->title = __("Visit frontend", Theme::TEXT_DOMAIN);

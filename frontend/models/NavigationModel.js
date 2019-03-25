@@ -9,7 +9,7 @@ class NavigationModel {
      * Define endpoint
      * @type {string}
      */
-    ENDPOINT = 'http://admin.petertenhoor.nl/wp-json/pth/v1/navigation'
+    ENDPOINT = 'http://127.0.0.1/wp-json/pth/v1/navigation'
 
     /**
      * Get menu data by location slug
@@ -19,8 +19,14 @@ class NavigationModel {
         let response = {success: false, data: {}}
 
         try {
-            const url = `${this.ENDPOINT}`
-            const data = await (await fetch(url)).json()
+            const url = `http://127.0.0.1:3000/api`
+            const data = await (await fetch(url, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    url: `${this.ENDPOINT}`
+                })
+            })).json()
 
             response.success = true
             response.data = data

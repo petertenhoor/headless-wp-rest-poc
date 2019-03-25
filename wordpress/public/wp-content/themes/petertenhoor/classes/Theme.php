@@ -10,8 +10,7 @@ require_once("utils/Log.php");
 require_once("post-types/BlogPostType.php");
 
 //components
-//require_once("components/FlushFrontendCacheComponent.php");
-//require_once("components/GraphqlCacheComponent.php");
+require_once("components/FlushFrontendCacheComponent.php");
 require_once("components/MainNavigation.php");
 require_once("components/PreviewComponent.php");
 require_once("components/CorsComponent.php");
@@ -50,7 +49,7 @@ class Theme extends Singleton
     /**
      * Define frontend base url
      */
-    const FRONTEND_BASE_URL = 'http://127.0.0.1:3000';
+    const FRONTEND_BASE_URL = 'http://localhost:3000';
 
     /**
      * Theme constructor.
@@ -76,8 +75,7 @@ class Theme extends Singleton
         MainNavigation::getInstance();
         PreviewComponent::getInstance();
         CorsComponent::getInstance();
-//        FlushFrontendCacheComponent::getInstance();
-//        GraphqlCacheComponent::getInstance();
+        FlushFrontendCacheComponent::getInstance();
     }
 
     /**

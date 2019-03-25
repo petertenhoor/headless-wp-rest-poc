@@ -9,7 +9,6 @@ const HomePage = ({menuData, frontpageData}) => {
     return (
         <Layout metaTitle={frontpageData.data.title} menuData={menuData}>
             <Col sm={12}>
-                <h1>{frontpageData.data.title}</h1>
                 <div dangerouslySetInnerHTML={{__html: frontpageData.data.content}}></div>
             </Col>
         </Layout>
