@@ -9,8 +9,8 @@ class PostModel {
      * Define endpoints
      * @type {string}
      */
-    ENDPOINT_POSTS = 'http://127.0.0.1/wp-json/better-rest-endpoints/v1/posts'
-    ENDPOINT_POST = 'http://127.0.0.1/wp-json/better-rest-endpoints/v1/post'
+    ENDPOINT_POSTS = 'http://headless-wp-poc.test/wp-json/better-rest-endpoints/v1/posts'
+    ENDPOINT_POST = 'http://headless-wp-poc.test/wp-json/better-rest-endpoints/v1/post'
 
     /**
      * Get all posts

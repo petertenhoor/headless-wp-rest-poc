@@ -12,7 +12,7 @@ class FlushFrontendCacheComponent extends Singleton
     /**
      * Define frontend cache flush url
      */
-    const FRONTEND_FLUSH_URL = 'http://localhost:3000/flush-cache';
+    const FRONTEND_FLUSH_URL = 'http://127.0.0.1:3000/flush-cache';
 
     /**
      * FlushFrontendCacheComponent constructor.
@@ -35,7 +35,7 @@ class FlushFrontendCacheComponent extends Singleton
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "8080",
+            CURLOPT_PORT => "3000",
             CURLOPT_URL => self::FRONTEND_FLUSH_URL,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",

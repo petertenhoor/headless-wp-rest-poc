@@ -22,7 +22,6 @@ class PreviewComponent extends Singleton
         add_filter('page_row_actions', [$this, 'change_base_url_view_link'], 9999, 2);
     }
 
-
     /**
      * @param $permalink
      * @return array|string
@@ -30,6 +29,9 @@ class PreviewComponent extends Singleton
     public static function filter_preview_link($permalink)
     {
         $base_url = Theme::FRONTEND_BASE_URL;
+
+        Log::log(['hello', $base_url, $permalink]);
+
         if (is_array($permalink)) {
             $url_data = wp_parse_url($permalink[0]);
             $permalink[0] = str_replace($url_data['scheme'] . '://' . $url_data['host'], untrailingslashit($base_url), $permalink[0]);

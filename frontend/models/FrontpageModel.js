@@ -9,7 +9,7 @@ class FrontpageModel {
      * Define endpoint
      * @type {string}
      */
-    ENDPOINT = 'http://127.0.0.1/wp-json/pth/v1/frontpage'
+    ENDPOINT = 'http://headless-wp-poc.test/wp-json/pth/v1/frontpage'
 
     /**
      * Get frontpage data

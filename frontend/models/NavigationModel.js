@@ -9,7 +9,7 @@ class NavigationModel {
      * Define endpoint
      * @type {string}
      */
-    ENDPOINT = 'http://127.0.0.1/wp-json/pth/v1/navigation'
+    ENDPOINT = 'http://headless-wp-poc.test/wp-json/pth/v1/navigation'
 
     /**
      * Get menu data by location slug

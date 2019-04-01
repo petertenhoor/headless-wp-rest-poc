@@ -48,11 +48,13 @@ class FrontPageRoute extends Singleton
             );
         }
 
+
+
         //set up response
         $data = [
             'id' => $frontPagePost->ID,
             'title' => $frontPagePost->post_title,
-            'content' => $frontPagePost->post_content
+            'content' =>  apply_filters('the_content', $frontPagePost->post_content)
         ];
 
         return new \WP_REST_Response($data, 200);

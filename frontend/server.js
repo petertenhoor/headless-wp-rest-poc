@@ -79,12 +79,11 @@ app.prepare().then(() => {
     })
 })
 
-server.listen(port, '0.0.0.0', (err) => {
+server.listen(port, '127.0.0.1', (err) => {
     if (err) throw err
     flushRedisCache()
     console.log(`> Ready on http://127.0.0.1:${port}`)
 })
-
 
 async function fetchAndCache(key, res) {
     const apiRedis = RedisModel.create('api-cache')

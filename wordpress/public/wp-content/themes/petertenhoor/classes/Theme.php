@@ -49,7 +49,7 @@ class Theme extends Singleton
     /**
      * Define frontend base url
      */
-    const FRONTEND_BASE_URL = 'http://localhost:3000';
+    const FRONTEND_BASE_URL = 'http://127.0.0.1:3000';
 
     /**
      * Theme constructor.
