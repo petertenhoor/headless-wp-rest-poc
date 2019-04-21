@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import styles from "../scss/page/post.scss";
 import NavigationModel from "../models/NavigationModel";
 import PostModel from "../models/PostModel";
+import ShortcodeContent from "../components/ShortcodeContent";
 
 const SingleBlog = ({menuData, postData}) => {
     return (
@@ -30,8 +31,7 @@ const SingleBlog = ({menuData, postData}) => {
                                 {moment(postData.data.date).format("MMM Do YYYY")}
                             </span>
 
-                <div className={styles.postContent}
-                     dangerouslySetInnerHTML={{__html: postData.data.content}}></div>
+                <ShortcodeContent content={postData.data.content}/>
 
                 <Link href={'/blog'} as={'/blog'}>
                     <a className={styles.archiveLink}>Back to archive</a>

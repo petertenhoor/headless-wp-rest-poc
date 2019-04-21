@@ -1,14 +1,16 @@
 import {Col} from "react-grid-system";
+
 import Layout from "../components/Layout";
 import NavigationModel from "../models/NavigationModel";
 import PageModel from "../models/PageModel";
+import ShortcodeContent from "../components/ShortcodeContent";
 
 const Page = ({menuData, pageData}) => {
     //TODO validate success of requests
     return (
         <Layout metaTitle={pageData.data.title} menuData={menuData}>
             <Col sm={12}>
-                <div dangerouslySetInnerHTML={{__html: pageData.data.content}}></div>
+                <ShortcodeContent content={pageData.data.content}/>
             </Col>
         </Layout>
     )

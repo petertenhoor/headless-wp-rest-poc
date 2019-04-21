@@ -19,6 +19,9 @@ require_once("components/CorsComponent.php");
 require_once("api/FrontPageRoute.php");
 require_once("api/NavigationRoute.php");
 
+//shortcodes
+require_once('shortcodes/ShortcodeButton.php');
+
 /**
  * Class Theme
  *
@@ -60,6 +63,7 @@ class Theme extends Singleton
         self::initComponents();
         self::setImageSizes();
         self::initRestRoutes();
+        self::initShortcodes();
     }
 
     public static function initPostTypes()
@@ -91,6 +95,11 @@ class Theme extends Singleton
     {
         FrontPageRoute::getInstance();
         NavigationRoute::getInstance();
+    }
+
+    public static function initShortcodes()
+    {
+        ShortcodeButton::getInstance();
     }
 
 }
